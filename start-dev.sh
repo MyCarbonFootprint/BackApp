@@ -1,13 +1,5 @@
 #!/bin/bash
 
-source version.sh
-
-LOCAL_PYTHON_VERSION=$(python3 --version)
-if [ "${LOCAL_PYTHON_VERSION}" != "Python ${PYTHON_VERSION}" ]; then
-    printf 'Bad Python version, you should have the version %s installed.\n' "${PYTHON_VERSION}"
-    exit 1
-fi
-
 # Create venv
 python3 -m venv venv
 source venv/bin/activate

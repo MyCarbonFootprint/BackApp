@@ -1,5 +1,4 @@
-ARG PYTHON_VERSION
-FROM python:${PYTHON_VERSION}-alpine
+FROM python:3.8.2-alpine
 
 # Install dependenties
 RUN apk --update add --no-cache \

@@ -24,7 +24,7 @@ jobs:
       env:
         API_TOKEN: ${{ secrets.API_TOKEN }}
       run: |
-        source version.sh && docker-compose build
+        docker-compose build
 
     # Runs a single command using the runners shell
     - name: Push Docker image

@@ -5,8 +5,6 @@ services:
   back-app:
     build:
       context: .
-      args:
-        PYTHON_VERSION: ${PYTHON_VERSION}
     restart: always
     environment:
       FLASK_APP: app
