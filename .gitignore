@@ -1,0 +1,12 @@
+# VS code conf
+.vscode/
+
+# Python cache
+__pycache__/
+
+# venv
+venv/
+*.egg-info/
+
+# Env file
+.env

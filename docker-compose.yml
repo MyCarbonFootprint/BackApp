@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+
+  back-app:
+    build:
+      context: .
+      args:
+        PYTHON_VERSION: ${PYTHON_VERSION}
+    restart: always
+    environment:
+      FLASK_APP: app
+      API_TOKEN: ${API_TOKEN}
+    ports:
+        - 5000:5000
