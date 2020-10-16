@@ -1,0 +1,19 @@
+Delete an action.
+---
+tags:
+  - actions
+parameters:
+  - description: ID of the action
+    name: id
+    required: true
+    type: integer
+    in: path
+responses:
+  204:
+    description: Success
+  400:
+    description: Deleting failed
+  401:
+    description: Unauthorized
+  404:
+    description: Event does not exist

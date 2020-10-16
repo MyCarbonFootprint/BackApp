@@ -1,0 +1,53 @@
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: dev
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: backend-service
+  namespace: dev
+spec:
+  type: NodePort
+  ports:
+  - port: 5000
+    protocol: TCP
+    name: http
+    targetPort: 5000
+  selector:
+    app: backend-app
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: backend-app
+  namespace: dev
+  labels:
+    app: backend-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-app
+  template:
+    metadata:
+      labels:
+        app: backend-app
+    spec:
+      imagePullSecrets:
+      - name: docker-cfg
+      containers:
+      - name: backend-app
+        imagePullPolicy: Always
+        image: BACKEND_IMAGE_NAME
+        ports:
+        - containerPort: 5000
+        env:
+        - name: API_TOKEN
+          value: TOKEN_VALUE
+        - name: FLASK_APP
+          value: app
+        - name: FLASK_ENV
+          value: production

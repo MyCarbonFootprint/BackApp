@@ -1,0 +1,15 @@
+Return the action list.
+---
+tags:
+  - actions
+responses:
+  200:
+    description: Success
+    schema:
+      type: array
+      items:
+        '$ref': "#/definitions/Action"
+  400:
+    description: No action
+  401:
+    description: Unauthorized

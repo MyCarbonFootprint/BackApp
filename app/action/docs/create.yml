@@ -1,0 +1,33 @@
+Create an action.
+---
+tags:
+  - actions
+parameters:
+  - description: Name of the action
+    name: name
+    type: string
+    required: true
+    in: body
+  - description: Description of the action
+    name: description
+    type: string
+    required: true
+    in: body
+  - description: Impact of the action
+    name: impact
+    required: true
+    in: body
+    schema:
+      type: integer
+      format: int64
+responses:
+  200:
+    description: Success
+    schema:
+      '$ref': "#/definitions/Action"
+  401:
+    description: Unauthorized
+  409:
+    description: Action already exists
+  406:
+    description: No JSON payload or bad format
