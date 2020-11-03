@@ -1,8 +1,5 @@
-# Kube config file
-kubeconfig
-
 # GCP service account file
 service-account.json
 
-# Generated Kube file
-app.yaml
+# Terraform
+.terraform/
