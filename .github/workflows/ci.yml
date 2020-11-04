@@ -55,8 +55,6 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Prepare GCP service account file
-      # master branch only
-      if: github.ref == 'refs/heads/kube-db'
       shell: bash
       env:
         GCP_SERVICE_ACCOUNT_FILE: ${{ secrets.GCP_SERVICE_ACCOUNT_FILE }}
