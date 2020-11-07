@@ -19,7 +19,9 @@ setup(
         'flasgger',
         # DB
         'flask_sqlalchemy',
-        'pymysql'
+        'pymysql',
+        # CORS
+        'flask_cors'
     ],
     extras_require={
         'test': [
