@@ -15,8 +15,6 @@ setup(
         'json-logging-py',
         'flask',
         'gunicorn',
-        # Doc
-        'flasgger',
         # DB
         'flask_sqlalchemy',
         'pymysql',

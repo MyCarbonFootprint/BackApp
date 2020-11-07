@@ -1,5 +1,4 @@
 from flask import Flask
-from flasgger import Swagger
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
@@ -23,7 +22,6 @@ check_environment_variables(['API_TOKEN'])
 
 # Initialize
 db = SQLAlchemy(session_options={"expire_on_commit": False})
-swagger = Swagger()
 
 
 def create_app(config_class=Config):
@@ -50,27 +48,5 @@ def create_app(config_class=Config):
         # Init db
         db.init_app(app)
         db.create_all()
-        if os.environ["FLASK_ENV"] == 'development':
-            # Init Swagger
-            Swagger(
-                app,
-                config={
-                    "static_url_path": "/flasgger_static",
-                    # URL to the documentation
-                    "specs_route": "/documentation/",
-                    "headers": [
-                    ],
-                    "specs": [
-                        {
-                            "endpoint": 'specifications',
-                            "route": '/specifications.json',
-                        }
-                    ],
-                },
-                template_file=(
-                    os.path.dirname(os.path.realpath(__file__)) +
-                    '/resources/flasgger/template.json'
-                )
-        )
 
     return app
