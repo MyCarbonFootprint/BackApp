@@ -3,6 +3,10 @@ import os
 
 from flask import Blueprint, abort, jsonify, request
 
+# Internal imports
+from app.authentication.authentication import (
+    check_token
+)
 from .Action import Action
 
 action = Blueprint(
@@ -17,6 +21,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 # Get action list
 @action.route('', methods=['GET'])
+@check_token()
 def get_actions():
     log.info("Get action list")
 
@@ -32,6 +37,7 @@ def get_actions():
 
 # Get action
 @action.route('/<string:id>', methods=['GET'])
+@check_token()
 def get_action(id):
     log.info("Get action with id " + id)
 
@@ -46,6 +52,7 @@ def get_action(id):
 
 # Create a action
 @action.route('', methods=['POST'])
+@check_token()
 def create_action():
     log.info('Create action')
 
@@ -81,6 +88,7 @@ def create_action():
 
 # Delete an action
 @action.route('/<string:id>', methods=['DELETE'])
+@check_token()
 def delete_action(id):
     log.info("Delete action " + id)
 
@@ -100,6 +108,7 @@ def delete_action(id):
 
 
 @action.route('/<string:id>', methods=['PUT'])
+@check_token()
 def update_action(id):
     log.info("Update action with the id " + id)
 
@@ -135,6 +144,7 @@ def update_action(id):
 
 
 @action.route('/impact', methods=['GET'])
+@check_token()
 def calcul_impact():
     log.info("Calcul impact")
 
