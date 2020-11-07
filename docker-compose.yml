@@ -6,9 +6,9 @@ services:
       context: .
     restart: always
     environment:
+      FLASK_ENV: dev
       FLASK_APP: app
       API_TOKEN: ${API_TOKEN}
-      DATABASE_URI: postgresql+psycopg2://postgres:root@mariadb:3306/snazzyevents
     ports:
       - 5000:5000
 
