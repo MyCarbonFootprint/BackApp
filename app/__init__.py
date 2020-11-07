@@ -1,6 +1,7 @@
 from flask import Flask
 from flasgger import Swagger
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
 from app.config import Config
 
@@ -28,6 +29,7 @@ swagger = Swagger()
 def create_app(config_class=Config):
     # create and configure the app
     app = Flask(__name__)
+    CORS(app)
 
     # Use config
     app.config.from_object(config_class)

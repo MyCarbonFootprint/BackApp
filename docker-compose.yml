@@ -1,7 +1,6 @@
 version: '3.7'
 
 services:
-
   back-app:
     build:
       context: .
@@ -11,7 +10,7 @@ services:
       API_TOKEN: ${API_TOKEN}
       DATABASE_URI: postgresql+psycopg2://postgres:root@mariadb:3306/snazzyevents
     ports:
-        - 5000:5000
+      - 5000:5000
 
   mariadb:
     image: mariadb:10.5.5
