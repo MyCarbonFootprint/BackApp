@@ -143,16 +143,13 @@ def update_action(id):
     return jsonify(new_action.to_array())
 
 
-@action.route('/impact', methods=['GET'])
+@action.route('/impact', methods=['POST'])
 @check_token()
 def calcul_impact():
     log.info("Calcul impact")
 
     # Get JSON content received
     content = request.get_json(silent=True)
-
-    # Get JSON content received
-    # content = request.get_json(silent=True)
     if content is None:
         abort(406, {'message': 'No content'})
 
@@ -184,7 +181,7 @@ def calcul_impact():
             },
             {
                 "id": 2,
-                "factor": total_impact/(Action.get_by_id(17).impact)
+                "factor": total_impact/(Action.get_by_id(2).impact)
             }
         ]
     })

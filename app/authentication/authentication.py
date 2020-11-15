@@ -20,6 +20,10 @@ def parametrized(dec):
 def check_token(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
+        # If env is dev, no check
+        if os.environ['FLASK_ENV'] == 'development':
+            return f(*args, **kwargs)
+
         # Get TOKEN
         api_key = get_authorization_header()
 

@@ -33,7 +33,7 @@ class Action(db.Model):
         if self.unit == "count":
             self.unit = ''
 
-        return self.number + self.unit + " of " + self.name + " with an impact of " + str(self.impact) + "gCO2eq."
+        return str(self.number) + self.unit + " of " + self.name + " with an impact of " + str(self.impact) + "gCO2eq."
 
 
     @staticmethod

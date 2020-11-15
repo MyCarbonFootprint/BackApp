@@ -17,6 +17,9 @@ export DATABASE_URI=mysql+pymysql://root:root@localhost:3306/myfingerprint
 docker rm -f mariadb
 docker rm -f adminer
 
+docker pull mariadb:10.5.5
+docker pull adminer
+
 docker run -d \
     -p 3306:3306 \
     -e MYSQL_ROOT_PASSWORD=root \
