@@ -148,21 +148,8 @@ def update_action(id):
 def calcul_impact():
     log.info("Calcul impact")
 
-
-    content = [
-        { 
-            "id": 3,
-            "coef": 5
-        },
-        { 
-            "id": 5,
-            "coef": 3
-        },
-        { 
-            "id": 10,
-            "coef": 5
-        }
-    ]
+    # Get JSON content received
+    content = request.get_json(silent=True)
 
     # Get JSON content received
     # content = request.get_json(silent=True)
