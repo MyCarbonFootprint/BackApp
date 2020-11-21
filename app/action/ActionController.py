@@ -71,8 +71,10 @@ def create_action():
         name=content['name'],
         description=content['description'],
         unit=content['unit'],
-        number=content['number'],
-        impact=content['impact']
+        impact=content['impact'],
+        source=content['source'],
+        family_id=content['family_id'],
+        score=content['score']
     )
 
     try:
@@ -129,8 +131,10 @@ def update_action(id):
         name=content['name'],
         description=content['description'],
         unit=content['unit'],
-        number=content['number'],
-        impact=content['impact']
+        impact=content['impact'],
+        source=content['source'],
+        family_id=content['family_id'],
+        score=content['score']
     )
 
     # Update action
@@ -196,7 +200,9 @@ def check_content_attributs(content):
         'name' not in content or
         'description' not in content or
         'unit' not in content or
-        'number' not in content or
-        'impact' not in content
+        'impact' not in content or
+        'source' not in content or
+        'family_id' not in content or
+        'score' not in content
     ):
         abort(406, {'message': 'Content not complete'})
