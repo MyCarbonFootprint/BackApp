@@ -9,9 +9,10 @@ class Action(db.Model):
     name = db.Column(db.String(254), nullable=False)
     description = db.Column(db.String(2047), nullable=False)
     unit = db.Column(db.String(254), nullable=False) # count or km or minute or hour
-    number = db.Column(db.Integer, nullable=False)
     impact = db.Column(db.Integer, nullable=False)
-
+    source = db.Column(db.String(2047), nullable=True)
+    family_id = db.Column(db.Integer, db.ForeignKey('family.id'), nullable=False)
+    score = db.Column(db.String(254), nullable=False)
 
     def __init__(
         self,
@@ -19,21 +20,25 @@ class Action(db.Model):
         name,
         description,
         unit,
-        number,
-        impact
+        impact,
+        source,
+        family_id,
+        score
     ):
         self.id = id
         self.name = name
         self.description = description
         self.unit = unit
-        self.number = number
         self.impact = impact
+        self.source = source
+        self.family_id = family_id
+        self.score = score
 
     def __str__(self):
         if self.unit == "count":
             self.unit = ''
 
-        return str(self.number) + self.unit + " of " + self.name + " with an impact of " + str(self.impact) + "gCO2eq."
+        return self.name + " with an impact of " + str(self.impact) + "gCO2eq."
 
 
     @staticmethod
@@ -103,7 +108,9 @@ class Action(db.Model):
         action['name'] = self.name
         action['description'] = self.description
         action['unit'] = self.unit
-        action['number'] = self.number
         action['impact'] = self.impact
+        action['source'] = self.source
+        action['family_id'] = self.family_id
+        action['score'] = self.score
 
         return action
