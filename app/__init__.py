@@ -37,12 +37,14 @@ def create_app(config_class=Config):
     from .main.VersionController import version
     from .errors.ErrorHandler import errors
     from .action.ActionController import action
+    from .actionFamily.ActionFamilyController import action_family
 
     # Get blueprint by routes
     app.register_blueprint(errors)
     app.register_blueprint(main)
     app.register_blueprint(version)
     app.register_blueprint(action)
+    app.register_blueprint(action_family)
 
     with app.app_context():
         # Init db
