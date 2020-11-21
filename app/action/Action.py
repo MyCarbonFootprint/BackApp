@@ -11,7 +11,7 @@ class Action(db.Model):
     unit = db.Column(db.String(254), nullable=False) # count or km or minute or hour
     impact = db.Column(db.Integer, nullable=False)
     source = db.Column(db.String(2047), nullable=True)
-    family_id = db.Column(db.Integer, db.ForeignKey('family.id'), nullable=False)
+    family_id = db.Column(db.Integer, db.ForeignKey('action_family.id'), nullable=False)
     score = db.Column(db.String(254), nullable=False)
 
     def __init__(
