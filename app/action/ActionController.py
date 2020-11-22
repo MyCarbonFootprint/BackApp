@@ -178,16 +178,16 @@ def calcul_impact():
 
     return jsonify({
         "daily_impact": total_impact,
-        "factors": [
-            {
-                "id": 7,
-                "factor": total_impact/(Action.get_by_id(7).impact)
-            },
-            {
-                "id": 2,
-                "factor": total_impact/(Action.get_by_id(2).impact)
-            }
-        ]
+        # "factors": [
+        #     {
+        #         "id": 7,
+        #         "factor": total_impact/(Action.get_by_id(7).impact)
+        #     },
+        #     {
+        #         "id": 2,
+        #         "factor": total_impact/(Action.get_by_id(2).impact)
+        #     }
+        # ]
     })
 
 def check_content_attributs(content):
