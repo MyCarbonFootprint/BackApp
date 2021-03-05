@@ -63,11 +63,11 @@ def create_action():
     check_content_attributs(content)
 
     # Create the id
-    id = len(Action.get_list()) + 1
+    action_id = len(Action.get_list()) + 1
 
     # Create action object
     action = Action(
-        id=id,
+        id=action_id,
         name=content['name'],
         description=content['description'],
         unit=content['unit'],

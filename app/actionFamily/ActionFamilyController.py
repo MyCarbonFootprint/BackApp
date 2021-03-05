@@ -63,11 +63,11 @@ def create_action_family():
     check_content_attributs(content)
 
     # Create the id
-    id = len(ActionFamily.get_list()) + 1
+    id_family = len(ActionFamily.get_list()) + 1
 
     # Create object
     action_family = ActionFamily(
-        id=id,
+        id=id_family,
         name=content['name'],
         description=content['description']
     )
