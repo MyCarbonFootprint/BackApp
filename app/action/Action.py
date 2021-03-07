@@ -12,7 +12,7 @@ class Action(db.Model):
     impact = db.Column(db.Integer, nullable=False)
     source = db.Column(db.String(2047), nullable=True)
     family_id = db.Column(db.Integer, db.ForeignKey('action_family.id'), nullable=False)
-    score = db.Column(db.String(254), nullable=False)
+    score = db.Column(db.Integer, nullable=False)
 
     def __init__(
         self,
